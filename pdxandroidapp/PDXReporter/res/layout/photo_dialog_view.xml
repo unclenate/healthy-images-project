@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ScrollView
+    android:id="@+id/scrollViewPhotoChoices"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:paddingBottom="10dip"
+	android:paddingLeft="10dip"
+	android:paddingRight="10dip"
+	>
+ 
+ 	<Button android:id="@+id/btnTakePhoto" 
+		android:layout_width="250dip"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true" 
+		android:textStyle="bold"
+		android:text="@string/photoTakePhoto" 
+		android:textSize="16dip"
+		android:textColor="@color/black"
+		android:background="@drawable/generic_highlight_button"
+		/>
+		
+ 	<Button android:id="@+id/btnChooseFromLib" 
+ 		android:layout_marginTop="7dip"
+ 		android:layout_below="@+id/btnTakePhoto"
+		android:layout_width="250dip"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true" 
+		android:textStyle="bold"
+		android:text="@string/photoChooseFromLib"
+		android:textSize="16dip"
+		android:textColor="@color/black"
+		android:background="@drawable/generic_highlight_button"
+		/>		
+
+ 	<Button android:id="@+id/btnNoPhoto" 
+ 		android:layout_marginTop="7dip"
+ 		android:layout_below="@+id/btnChooseFromLib"
+		android:layout_width="250dip"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true" 
+		android:textStyle="bold"
+		android:text="@string/photoNoPhoto"
+		android:textSize="16dip"
+		android:textColor="@color/black"
+		android:background="@drawable/generic_highlight_button"
+		/>			
+ 	
+	<Button android:id="@+id/btnPhotoCancel" 
+		android:layout_marginTop="15dip"
+		android:layout_width="245dip"
+		android:layout_below="@+id/btnNoPhoto"
+		android:layout_height="wrap_content" 
+		android:layout_centerHorizontal="true"
+		android:textSize="16dip"
+		android:textStyle="bold"
+		android:textColor="#FFFFFF"
+		android:text="@string/photoCancel" 
+		android:background="@drawable/cancel_highlight_button"
+		/>
+ 
+</RelativeLayout>
+
+</ScrollView>
+
