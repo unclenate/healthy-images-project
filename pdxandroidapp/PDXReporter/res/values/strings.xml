@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">\n\nTesting location coordinates...</string>
+    <string name="crosshair">crosshair coordinates...</string>
+    <string name="location">Waiting for location information...</string>
+    <string name="app_name">PDX Reporter</string>
+    <string name="mapLocation">View My Location</string>
+    <string name="mapHeader">Set Location</string>
+    <string name="mapFooter">Center Crosshairs On Report Location</string>
+    
+    <string name="defaultLatitude">45.53162</string>
+    <string name="defaultLongitude">-122.64770</string>
+    <string name="defaultzoomlevel">14</string>
+    <string name="gpszoomlevel">21</string>
+    
+    <string name="menuReport">New Report</string>
+    <string name="menuMyReport">My Reports</string>
+    <string name="menuClose">Close</string>
+    <string name="menuSetting">Contact Info</string>
+    <string name="menuHelp">Help</string>    
+    
+    <string name="defaultDisclaimerFrequency">1</string>
+    <string name="defaultDisclaimerText">IMPORTANT:\n\nThis app should not be used to report emergencies of any kind. In the event of a life threatening emergency call 911.\n\nFor non-life threatening emergencies call 503-823-3333.\n\nFor any other issue that requires real-time feedback or attention please call 503-823-4000.\n\nThe City of Portland will not release any information provided by the user of this application to any outside company or organization, unless legally required to do so.</string>
+    <string name="defaultGpsAccuracyThreshold">10</string>
+    <string name="defaultGpsSampleCount">4</string>
+    <string name="defaultGpsSampleInterval">3</string>
+    <string name="defaultHelpPage">EnterSomeValueHere</string>
+    <string name="defaultPhotoCompression">0.6</string>
+    <string name="defaultPhotoMaxPixels">800</string>
+    
+    <string name="defaultSampleSizeExtra">6</string>
+    <string name="defaultSampleSizeLarge">4</string>
+    <string name="defaultSampleSizeMedium">4</string>
+    <string name="defaultSampleSizeSmall">2</string>
+    
+    <string name="defaultMaxRetryAttempts">3</string>
+    <string name="defaultAndroidGpsSampleCount">15</string>
+    <string name="defaultAndroidTimeout">90000</string>
+    
+    <string name="settingElements">disclaimer_frequency|disclaimer_text|gps_accuracy_threshold|gps_sample_count|gps_sample_interval|help_page|photo_compression|photo_max_pixels</string>
+    <string name="unknownDevice">Unable to identify device.\nPlease try activating your Marketplace before returning.</string>
+    <string name="android_emulator">ANDROID_EMULATOR</string>
+    
+    <string name="param1">EnterSomeValueHere</string>
+    <string name="param2">EnterSomeValueHere</string>
+    
+    <string name="param3">EnterSomeValueHere</string>
+    <string name="param4">EnterSomeValueHere</string>
+    <string name="param5">EnterSomeValueHere</string>
+    
+    <string name="param6">EnterSomeValueHere</string>
+    <string name="param7">EnterSomeValueHere</string>
+    <string name="param8">EnterSomeValueHere</string>
+    
+    
+    <string name="pval">EnterSomeValueHere</string>
+    <string name="pval5">EnterSomeValueHere</string>
+    
+    
+    <string name="gpsButtonDialog">Use GPS Location</string>
+    <string name="mapButtonDialog">Select Location On Map</string>
+    <string name="cancelButtonDialog">Cancel</string>
+    <string name="gpsFoundButtonDialog">Change Report Location</string>
+    
+    <string name="gpsProgressMsg">Please wait, trying to get an\naccurate GPS fix for your location.</string>
+    <string name="invalidLocation">Invalid Location\n\n Report locations must be within the City of Portland.</string>
+    <string name="contactInfoMsg">Contact Info?\n\nPlease consider filling out the contact information found on the \"Settings\" menu option of this app.  While contact information is optional, it helps us respond to reports more effectively.  Would you like to fill out your contact information now?</string>
+    <string name="contactInfoFooter">Contact information is optional, but helps us respond to reports more effectively.</string>
+    
+    <string name="gpsErrorMsgDialog">Please Refine Location\n\nUnable to get an accurate enough (+/- 10.0 meters) fix from your device\'s GPS.  Please fine-tune your location on the map display by centering the crosshairs on your actual location.</string>
+    <string name="imgPreviewText">Photo\nPreview</string>
+    
+    <string name="photoTakePhoto">Take New Photo</string>
+    <string name="photoChooseFromLib">Choose From Library</string>
+    <string name="photoNoPhoto">No Photo</string>
+    <string name="photoCancel">Cancel</string>
+    <string name="photoErrorMsg">Sorry the photo selected is too large.  Please select a photo that is smaller than 500k.  A smaller photo size can be obtained by lowering the camera resolution setting and/or lowering the picture quality setting.</string>
+    <string name="photoSizeThreshold">1000</string>
+    
+    <string name="btnReportType">Choose Report Type</string>
+    <string name="btnReportLocation">Set Report Location</string>
+    <string name="btnCommentText">Finish Comments</string>
+    <string name="btnSelectPhoto">Select Photo</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="btnSpinnerDefault">Category Options</string>
+    <string name="btnSpinnerRetrieving">Loading...</string>
+    <string name="btnSpinnerError">Categories Not Available</string>
+    
+    <string name="httpTimeOutMilliseconds">15000</string>
+    <string name="socketTimeoutMilliseconds">15000</string>
+    <string name="contactAlertInterval">180000</string>
+    <string name="categoryRefreshInterval">1800000</string>
+    
+    <string name="default_text">Add comments here...</string>
+    <string name="report_detail_screen">Report Detail Screen</string>
+    
+    <string name="instructions">Drag or stretch photos</string>
+    
+    <string name="myReportDialogMsg">Just a moment, retrieving\n your reports...</string>
+    <string name="myReportDialogTitle">Retrieving . . .</string>
+    <string name="myReportNoData">Retrieving reports . . .</string>
+    <string name="myReportStatusLine">Status: </string>
+    <string name="exitApplicationMsg">Are you sure you want to exit?</string>
+    <string name="reportThankYou">Report Sent\n\nThank you, your report has been submitted. You can track it on the \"My Reports\" screen.</string>
+    <string name="reportError">Sorry, unable to send report at this time. Please try again later.</string>
+    
+    
+    <string name="newReportMsg">Cancel submitting this report\nand clear the screen?</string>
+    <string name="submitReportMsg">Please wait, currently uploading\nyour report to the City of Portland.</string>
+    <string name="workingText">working . . .</string>
+    
+    <string name="postReportUrl_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postReportUrl_DEV">http://EnterYourUrlHere.code.google.com</string>
+    
+    <string name="postRequestInfo_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestInfo_DEV">http://EnterYourUrlHere.code.google.com</string>
+	
+	<string name="postRequestStatus_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestStatus_DEV">http://EnterYourUrlHere.code.google.com</string>
+	
+	<string name="postRequestReports_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReports_DEV">http://EnterYourUrlHere.code.google.com</string>
+	
+	<string name="postRequestReportInfo_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReportInfo_DEV">http://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReportInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestMapInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
+    
+    <string name="postRequestSettings_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestSettings_DEV">http://EnterYourUrlHere.code.google.com</string>
+    
+    <string name="postRequestBlackList_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestBlackList_DEV">http://EnterYourUrlHere.code.google.com</string>
+    
+    <string name="postRequestContact_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestContact_DEV">http://EnterYourUrlHere.code.google.com</string>
+    
+    
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
