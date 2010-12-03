@@ -700,22 +700,28 @@ public class Report extends Activity {
 
 		if (validDevice) {
 
-			// Do this on the main UI thread
-			HashMap<String, String> postParams = new HashMap<String, String>();
+			// Let's NOT do this on the main thread and prevent any ANR due to network connectivity delays or response times
+			final HashMap<String, String> postParams = new HashMap<String, String>();
 
-			HTTPRequestHelper helper = new HTTPRequestHelper(responseSettingHandler);
+			final HTTPRequestHelper helper = new HTTPRequestHelper(responseSettingHandler);
 
 			postParams.put(getString(R.string.param1), getString(R.string.pval));
 			postParams.put(getString(R.string.param2), reportInfo.getDeviceId());
 
-			helper.performPost(
-							getString(R.string.postRequestSettings_PROD),
-							"",
-							"",
-							Integer.parseInt(getString(R.string.httpTimeOutMilliseconds)),
-							Integer.parseInt(getString(R.string.socketTimeoutMilliseconds)),
-							null, postParams);
+			new Thread() {
 
+				@Override
+				public void run() {
+					helper.performPost(
+									getString(R.string.postRequestSettings_PROD),
+									"",
+									"",
+									Integer.parseInt(getString(R.string.httpTimeOutMilliseconds)),
+									Integer.parseInt(getString(R.string.socketTimeoutMilliseconds)),
+									null, postParams);
+						}
+			}.start();
+			
 			performRequest(null, null, REQUEST_BLACKLIST);
 			// performRequest(null, null, REQUEST_SETTINGS);
 		}
@@ -1201,6 +1207,7 @@ public class Report extends Activity {
 
 					if (imgSize <= 150) {
 						// needToResize = false;
+						options.inSampleSize = 4;
 					} else if (imgSize <= 500) {
 						options.inSampleSize = 4;
 					} else if (imgSize <= photoSizeThreshold) {
@@ -1238,9 +1245,34 @@ public class Report extends Activity {
 			}
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			// Log.e("ERROR", e.toString());
-			e.printStackTrace();
+			//e.printStackTrace();
+			
+			//Notify user to manually select the photo.
+			View customDialogView = View.inflate(this, R.layout.custom_dialog, null); 
+	        TextView customTextView = (TextView) customDialogView.findViewById(R.id.customDialogText); 
+	      	
+	      	customTextView.setText("Oops, we were unable to create an image preview. Please reselect your photo by clicking the button below."); 
+	      	customTextView.setMovementMethod(LinkMovementMethod.getInstance()); 
+			
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setView(customDialogView)
+					.setCancelable(false)
+					.setPositiveButton("Reselect", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   selectExternalStorageImage();
+			        	   dialog.dismiss();
+			           }
+			       })
+			       .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			                dialog.cancel();
+			           }
+			       });
+			AlertDialog alert = builder.create();
+			alert.show();
+			
 		} finally {
 
 			if (photoStream != null) {
@@ -1443,6 +1475,7 @@ public class Report extends Activity {
 
 						if (size <= 150) {
 							needToResize = false;
+							options.inSampleSize = 4;
 						} else if (size <= 500) {
 							options.inSampleSize = 4;
 						} else if (size <= photoSizeThreshold) {
@@ -1642,20 +1675,27 @@ public class Report extends Activity {
 				
 		if (settingTimestamp > 0 && ((currentTime - settingTimestamp) >= 1800000)) 
 		{
-			HashMap<String, String> postParams = new HashMap<String, String>();
+			final HashMap<String, String> postParams = new HashMap<String, String>();
 			
-			HTTPRequestHelper helper = new HTTPRequestHelper(responseSettingHandler);
+			final HTTPRequestHelper helper = new HTTPRequestHelper(responseSettingHandler);
 	
 			postParams.put(getString(R.string.param1), getString(R.string.pval));
 			postParams.put(getString(R.string.param2), reportInfo.getDeviceId());
-	
-			helper.performPost(
-							getString(R.string.postRequestSettings_PROD),
-							"",
-							"",
-							Integer.parseInt(getString(R.string.httpTimeOutMilliseconds)),
-							Integer.parseInt(getString(R.string.socketTimeoutMilliseconds)),
-							null, postParams);
+			
+			new Thread() {
+
+				@Override
+				public void run() {
+					helper.performPost(
+									getString(R.string.postRequestSettings_PROD),
+									"",
+									"",
+									Integer.parseInt(getString(R.string.httpTimeOutMilliseconds)),
+									Integer.parseInt(getString(R.string.socketTimeoutMilliseconds)),
+									null, postParams);
+						}
+			}.start();
+			
 			
 		} else if (settingTimestamp != 0) {
 			settingTimestamp = System.currentTimeMillis();
