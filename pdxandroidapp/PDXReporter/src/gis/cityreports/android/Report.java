@@ -630,8 +630,12 @@ public class Report extends Activity {
 		Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 		int width = display.getWidth();
 		int height = display.getHeight();
-
-		setContentView(R.layout.main_480);
+		
+		if (height >= 1024) {
+			setContentView(R.layout.main_1024);
+		} else {
+			setContentView(R.layout.main_480);
+		}
 
 		configSetting = ((ApplicationState) getApplication()).getConfigSetting();
 		reportInfo = ((ApplicationState) getApplication()).getReportInfoState();
@@ -737,8 +741,11 @@ public class Report extends Activity {
 		mEditText.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				Intent i = new Intent(Report.this, Comments.class);
-				startActivity(i);
+				
+				if (event.getAction() == KeyEvent.ACTION_DOWN) {
+					Intent i = new Intent(Report.this, Comments.class);
+					startActivity(i);
+				}
 				return true;
 			}
 		});
