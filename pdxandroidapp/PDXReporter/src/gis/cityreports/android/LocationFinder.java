@@ -61,6 +61,7 @@ public class LocationFinder extends MapActivity {
 	
 	private boolean toggleClick = false;
 	private boolean isLoctionFinderRunning = false;
+	private boolean isGPSAlertShowing = false;
 	
 	private double accuracyThreshold;
 	private double currentAccuracy;
@@ -307,6 +308,44 @@ public class LocationFinder extends MapActivity {
     	  
       }
   };
+  
+  public void alertNoGPS() {
+		
+	  isGPSAlertShowing = true;
+	  
+	  View customDialogView = View.inflate(this, R.layout.custom_dialog, null);
+	  TextView customTextView = (TextView) customDialogView.findViewById(R.id.customDialogText);
+	  customTextView.setMinWidth(300);
+
+	  customTextView.setText("GPS Not Enabled");
+	  customTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
+	  Linkify.addLinks(customTextView, Linkify.WEB_URLS | Linkify.PHONE_NUMBERS | Linkify.EMAIL_ADDRESSES);
+
+	  AlertDialog.Builder builder = new AlertDialog.Builder(this);
+	  builder.setView(customDialogView).setCancelable(false)
+	  			.setPositiveButton("Turn on GPS",
+	  					new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.dismiss();
+								isGPSAlertShowing = false;
+								try {
+									Intent i = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+									startActivity(i);						
+								} catch (android.content.ActivityNotFoundException ax) {									
+								}					
+							}		
+						}).setNegativeButton("Ignore",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.dismiss();
+								isGPSAlertShowing = false;
+							}
+						});
+
+	  AlertDialog alert = builder.create();
+	  alert.show();
+	}
 
   private void disclaimerPopup(String disclaimer)
   {
@@ -470,6 +509,8 @@ public class LocationFinder extends MapActivity {
 	    	startService();
 	        isLoctionFinderRunning = true;
 	        
+	        buttonGPSstart.setOnClickListener(mStartGPSListener);
+	        
 	        //Toast.makeText(LocationFinder.this, "MY LOCATION ON", Toast.LENGTH_SHORT).show();
 	        
 	        setMylocationToggle(MYLOCATION_ON);
@@ -484,6 +525,10 @@ public class LocationFinder extends MapActivity {
 	    	setMylocationToggle(MYLOCATION_OFF);
 	    	buttonGPSstart.setImageResource(R.drawable.mylocationdisabled);
 	    	buttonGPSstart.setBackgroundResource(R.drawable.generic_map_highlight_button);
+	    	
+	    	if (!isGPSAlertShowing)
+	    		alertNoGPS();
+	    	
 	    }
 	    
 	}
