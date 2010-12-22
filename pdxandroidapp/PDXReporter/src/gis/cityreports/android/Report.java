@@ -172,6 +172,7 @@ public class Report extends Activity {
 		
 	private boolean activeNetworkState = true;
 	private boolean categoryRefreshRunning = false;
+	private boolean isNetworkStateShowing = false;
 
 	private double currentLatitude = 0;
 	private double currentLongitude = 0;
@@ -1199,7 +1200,18 @@ public class Report extends Activity {
 			int photoSizeThreshold = Integer.parseInt(getString(R.string.photoSizeThreshold));
 
 			byte[] imageByteArray = null;
-			File myfile = new File(tempImagePath);
+			
+			//File myfile = new File(tempImagePath);
+			
+			File myfile = null;
+			if (StringUtils.contains(tempImagePath, "file://")) {
+				if (tempUri != null) {
+					myfile = new File(tempUri.getPath());
+				}
+			} else {
+				myfile = new File(tempImagePath);
+			}
+			
 
 			if (myfile.exists()) {
 				imageByteArray = getImageBytes(myfile);
@@ -1676,6 +1688,11 @@ public class Report extends Activity {
 	@Override
 	protected void onResume() {
 
+		if (ApplicationState.getIntentShareUri() != null) {
+			resizeImageForBitmap(ApplicationState.getIntentShareUri());
+			ApplicationState.setIntentShareUri(null);
+		}
+		
 		startGPSService();
 		
 		long currentTime = System.currentTimeMillis();
@@ -1713,7 +1730,7 @@ public class Report extends Activity {
 		// Toast.LENGTH_SHORT).show();
 
 		mEditText.setText(ApplicationState.getComments());
-
+				
 		File myfile = null;
 		if (StringUtils.contains(reportInfo.getImageAbsolutePath(), "file://")) {
 			Uri tempUri = Uri.parse(reportInfo.getImageFullUriPath());
@@ -1735,8 +1752,10 @@ public class Report extends Activity {
 			mTakePhoto.setImageBitmap(null);
 		}
 
-		networkVerify(Report.this);
+		if(!isNetworkStateShowing)
+			networkVerify(Report.this);
 
+		
 		super.onResume();
 	}
 
@@ -1746,6 +1765,7 @@ public class Report extends Activity {
 	public void networkVerify(final Activity mActivity) {
 		if (!isNetworkAvailable(mActivity)) {
 			activeNetworkState = false;
+			isNetworkStateShowing = true;
 
 			View customDialogView = View.inflate(this, R.layout.custom_dialog, null);
 			TextView customTextView = (TextView) customDialogView.findViewById(R.id.customDialogText);
@@ -1763,15 +1783,20 @@ public class Report extends Activity {
 								public void onClick(DialogInterface dialog,
 										int id) {
 									dialog.dismiss();
+									isNetworkStateShowing = false;
 								}
 							}).setNeutralButton("Settings",
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {
 									dialog.dismiss();
-									Intent i = new Intent(
-											android.provider.Settings.ACTION_WIRELESS_SETTINGS);
-									startActivity(i);
+									isNetworkStateShowing = false;
+									
+									try {
+										Intent i = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
+										startActivity(i);						
+									} catch (android.content.ActivityNotFoundException ax) {									
+									}
 
 								}
 							}).setNegativeButton("Exit",
@@ -1789,6 +1814,7 @@ public class Report extends Activity {
 			if (!activeNetworkState) {
 				performRequest(null, null, REQUEST_CATEGORIES);
 			}
+			isNetworkStateShowing = false;
 		}
 	}
 
@@ -2115,8 +2141,23 @@ public class Report extends Activity {
 									errorFields += "Photo\n";
 									isValidReport = false;
 								} else {
-									File myfile = new File(reportInfo.getImageAbsolutePath());
-
+									
+									//File myfile = new File(reportInfo.getImageAbsolutePath());
+									
+									File myfile = null;
+									if (StringUtils.contains(reportInfo.getImageAbsolutePath(), "file://")) {
+										Uri tempUri = Uri.parse(reportInfo.getImageFullUriPath());
+										if (tempUri != null) {
+											myfile = new File(tempUri.getPath());
+										}
+									} else {
+										String currentPhotoPath = reportInfo.getImageAbsolutePath();
+										if (currentPhotoPath != null) {
+											myfile = new File(currentPhotoPath);
+										}
+									}
+									
+									
 									if (!myfile.exists()) {
 										errorFields += "Missing Photo\n";
 										isValidReport = false;
