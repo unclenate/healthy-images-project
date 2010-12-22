@@ -2,6 +2,7 @@ package gis.cityreports.android;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -23,7 +24,25 @@ public class SplashScreen extends Activity {
 	    super.onCreate(savedInstanceState);
 	    
 	    setContentView(R.layout.custom_splash_dialog);
-	 	    
+
+	    try {
+		    Intent intent = getIntent();
+		    Bundle extras = intent.getExtras();
+		        
+		    String action = intent.getAction();
+		 
+		    if (Intent.ACTION_SEND.equals(action)) {
+		    	if (extras.containsKey(Intent.EXTRA_STREAM)) {
+		    		Uri uri = (Uri)extras.getParcelable(Intent.EXTRA_STREAM);
+		    		ApplicationState.setIntentShareUri(uri);
+		        } else if (extras.containsKey(Intent.EXTRA_TEXT)) {
+		            //Do nothing for now;
+		        }
+		    } 
+	    } catch (Exception ex) {
+	    	//Do nothing for now;
+	    }
+	    
 	    _exitRunnable = new Runnable() {
 	    	public void run() {
 	    		exitSplash();
