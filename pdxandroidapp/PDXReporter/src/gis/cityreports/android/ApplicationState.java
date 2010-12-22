@@ -13,6 +13,7 @@ import android.content.SharedPreferences.Editor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -63,7 +64,22 @@ public class ApplicationState extends Application {
 	private static double currentLatitude = 0;
 	private static double currentLongitude = 0;
 	
-			
+	private static Uri intentShareUri;
+					
+	/**
+	 * @return the intentShareUri
+	 */
+	public static Uri getIntentShareUri() {
+		return intentShareUri;
+	}
+
+	/**
+	 * @param set the intentShareUri
+	 */
+	public static void setIntentShareUri(Uri intentShareUri) {
+		ApplicationState.intentShareUri = intentShareUri;
+	}
+
 	/**
 	 * @return the currentLatitude
 	 */
