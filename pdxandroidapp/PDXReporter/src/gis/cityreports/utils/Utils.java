@@ -3,10 +3,20 @@
  */
 package gis.cityreports.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-import android.util.Log;
+import org.apache.james.mime4j.codec.Base64InputStream;
+import org.apache.james.mime4j.codec.Base64OutputStream;
+
+import android.app.Activity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 /**
  * @author Roy Cham
@@ -146,7 +156,67 @@ public class Utils {
 	    return isValidLocation;
 	}
 	
+	public static String objectToString(Serializable object) {
+	    ByteArrayOutputStream out = new ByteArrayOutputStream();
+	    try {
+	        new ObjectOutputStream(out).writeObject(object);
+	        byte[] data = out.toByteArray();
+	        out.close();
+
+	        out = new ByteArrayOutputStream();
+	        Base64OutputStream b64 = new Base64OutputStream(out);
+	        b64.write(data);
+	        b64.close();
+	        out.close();
+
+	        return new String(out.toByteArray());
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
+
+	public static Object stringToObject(String encodedObject) {
+	    try {
+	        return new ObjectInputStream(new Base64InputStream(
+	                new ByteArrayInputStream(encodedObject.getBytes()))).readObject();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
 	
+	public static boolean isNetworkAvailable(Activity mActivity) {
+		Context context = mActivity.getApplicationContext();
+		ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+		if (connectivity == null) {
+			return false;
+		} else {
+			NetworkInfo[] info = connectivity.getAllNetworkInfo();
+			if (info != null) {
+				for (int i = 0; i < info.length; i++) {
+					if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static String appendDelimiter(Iterable<?> elements, String delimiter) {  
+		StringBuilder sb = new StringBuilder();  
+
+		for (Object e : elements) {  
+			
+			if (sb.length() > 0)  
+				sb.append(delimiter);   
+			
+			sb.append(e);  
+		}  
+		return sb.toString();  
+	}  
 
 
 }
