@@ -8,11 +8,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="wrap_content"
     android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
     android:background="#CCCCCC"
-    android:padding="15px"
+    android:paddingLeft="35dip"
+    android:paddingRight="35dip"
+    android:paddingTop="15dip"
     android:stretchColumns="1"
     android:layout_weight="1"
     >
@@ -29,7 +33,7 @@
 	    	
 	    <EditText
 	    	android:id="@+id/editContactName"
-	    	android:layout_width="200sp"
+	    	android:layout_width="200dip"
 	    	android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
 	    	android:singleLine="true"
 	    	android:maxLength="100"
@@ -48,7 +52,7 @@
 	    
 	    <EditText
 	    	android:id="@+id/editContactPhone"
-	    	android:layout_width="200sp"
+	    	android:layout_width="200dip"
 	    	android:singleLine="true"
 	    	android:maxLength="30"
 			android:layout_height="wrap_content" />	    	
@@ -68,7 +72,7 @@
 
 	    <EditText
 	    	android:id="@+id/editContactEmail"
-	    	android:layout_width="200sp"
+	    	android:layout_width="200dip"
 	    	android:singleLine="true"
 	    	android:maxLength="100"
 	    	android:layout_height="wrap_content"
@@ -93,6 +97,7 @@
     </TableRow>
     
 	</TableLayout>
+	
 </ScrollView>
 
 

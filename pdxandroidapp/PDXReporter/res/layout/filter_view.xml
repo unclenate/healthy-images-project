@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+    
+    <LinearLayout 
+    	android:id="@+id/maintopNav"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent"
+		android:background="#0000"
+		android:orientation="vertical">
+		
+		<LinearLayout
+	    	android:id="@+id/filterTopNav"
+			android:layout_width="fill_parent" 
+			android:layout_height="45dip"
+			android:maxHeight="45dip" 
+			android:orientation="horizontal"
+			android:background="@drawable/header">
+    
+	    	<TextView 
+					android:id="@+id/filterHeader"
+					android:layout_width="fill_parent"
+					android:layout_height="45dip" 
+					android:maxHeight="45dip"
+					android:textSize="16dip"
+					android:text="@string/filterHeader"
+					android:textColor="#FFFFFF"
+					android:layout_weight="1"
+					android:gravity="center|center_vertical|center_horizontal" />
+		
+		</LinearLayout>		
+		
+
+		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/filtersByStatus"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:background="#ffff"
+			    android:layout_below="@+id/filterHeader"
+			    android:padding="10dp" >
+			     
+		</TableLayout>	
+		
+		<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/filtersByType"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:background="#ffff"
+			    android:layout_below="@+id/filtersByStatus"
+			    android:layout_marginBottom="30dip"
+			    android:padding="10dp" >
+			     
+		</TableLayout>	
+
+    
+    </LinearLayout>	
+    
+</ScrollView>
