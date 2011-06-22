@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -173,6 +174,7 @@ public class Report extends Activity {
 	private boolean activeNetworkState = true;
 	private boolean categoryRefreshRunning = false;
 	private boolean isNetworkStateShowing = false;
+	private static boolean needToRefreshCategories = false;
 
 	private double currentLatitude = 0;
 	private double currentLongitude = 0;
@@ -210,9 +212,7 @@ public class Report extends Activity {
 	private Uri tempPhotoUri;
 
 	private Utils utils = new Utils();
-
-	
-	
+		
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 	Runnable categoryRefresh = new Runnable() {
@@ -342,7 +342,15 @@ public class Report extends Activity {
 					Collections.sort(posts, new CaseInsensitiveComparator());
 
 					adapter = null;
-					adapter = new ArrayAdapter<CategoryDetails>(getApplicationContext(),R.layout.my_simple_spinner_dropdown_item);
+					
+					Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+					int textViewResourceId = R.layout.my_simple_spinner_dropdown_item;
+					int height = display.getHeight();
+					if (height >= 1024) {
+						textViewResourceId = R.layout.my_simple_spinner_dropdown_item_1024;
+					}
+					
+					adapter = new ArrayAdapter<CategoryDetails>(getApplicationContext(), textViewResourceId);
 					adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 					CategoryDetails defaultSelection = new CategoryDetails();
@@ -355,6 +363,9 @@ public class Report extends Activity {
 					// Log.d("past category id", reportInfo.getCategoryId());
 
 					if (posts != null) {
+						
+						ApplicationState.saveCategories(Utils.objectToString((Serializable) posts));
+						
 						for (CategoryDetails p : posts) {
 							adapter.add(p);
 
@@ -366,6 +377,9 @@ public class Report extends Activity {
 						s.setAdapter(adapter);
 						s.setSelection(categoryPosition);
 						s.setPrompt(getString(R.string.btnSpinnerDefault));
+						
+						needToRefreshCategories = false;
+											
 					} else {
 						setDefaultCategory(getString(R.string.btnSpinnerError));
 					}
@@ -591,9 +605,16 @@ public class Report extends Activity {
 			CategoryDetails defaultSelection = new CategoryDetails();
 			defaultSelection.setCategory_id("");
 			defaultSelection.setIphone_input_alias(message);
+			
+			Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+			int textViewResourceId = R.layout.my_simple_spinner_dropdown_item;
+			int height = display.getHeight();
+			if (height >= 1024) {
+				textViewResourceId = R.layout.my_simple_spinner_dropdown_item_1024;
+			}
+				
 
-			adapter = new ArrayAdapter<CategoryDetails>(this, R.layout.my_simple_spinner_dropdown_item);
-
+			adapter = new ArrayAdapter<CategoryDetails>(this, textViewResourceId);
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 			adapter.add(defaultSelection);
 
@@ -643,7 +664,8 @@ public class Report extends Activity {
 
 
 		ApplicationState.setupDefaults();
-
+		needToRefreshCategories = true;
+		
 		//
 		
 //		sensorMan = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
@@ -1197,6 +1219,7 @@ public class Report extends Activity {
 		Bitmap photoBitmap = null;
 
 		try {
+			
 			int photoSizeThreshold = Integer.parseInt(getString(R.string.photoSizeThreshold));
 
 			byte[] imageByteArray = null;
@@ -1763,10 +1786,11 @@ public class Report extends Activity {
 	 * Verify Network Connectivity 
 	 */
 	public void networkVerify(final Activity mActivity) {
-		if (!isNetworkAvailable(mActivity)) {
+		if (!Utils.isNetworkAvailable(mActivity)) {
 			activeNetworkState = false;
 			isNetworkStateShowing = true;
-
+			needToRefreshCategories = true;
+			
 			View customDialogView = View.inflate(this, R.layout.custom_dialog, null);
 			TextView customTextView = (TextView) customDialogView.findViewById(R.id.customDialogText);
 			customTextView.setMinWidth(300);
@@ -1812,29 +1836,13 @@ public class Report extends Activity {
 
 		} else {
 			if (!activeNetworkState) {
+				needToRefreshCategories = true;
+				activeNetworkState = true;
+				
 				performRequest(null, null, REQUEST_CATEGORIES);
 			}
 			isNetworkStateShowing = false;
 		}
-	}
-
-	public static boolean isNetworkAvailable(Activity mActivity) {
-		Context context = mActivity.getApplicationContext();
-		ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-		if (connectivity == null) {
-			return false;
-		} else {
-			NetworkInfo[] info = connectivity.getAllNetworkInfo();
-			if (info != null) {
-				for (int i = 0; i < info.length; i++) {
-					if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 	private void stopServices() {
@@ -1870,10 +1878,21 @@ public class Report extends Activity {
 		if (s != null)
 			s.setSelection(0);
 	}
+	
+	private void enableMyReportsButton(Menu menu) {
+				
+		MenuItem mReport = (MenuItem)menu.findItem(R.id.MyReport);
+		mReport.setEnabled(false);
+		
+		if ((ApplicationState.getCategories() != null) && (!needToRefreshCategories)) {
+			mReport.setEnabled(true);
+		} 
+	}
 
 	public boolean onPrepareOptionsMenu(Menu menu) {
 
 		setEditTextField();
+		enableMyReportsButton(menu);
 		return true;
 
 	}
@@ -2117,7 +2136,7 @@ public class Report extends Activity {
 
 			String category = null;
 			category = reportInfo.getCategoryId();
-
+			
 			if (StringUtils.isBlank(category)) {
 				errorFields += "Report Type\n";
 				isValidReport = false;
@@ -2176,6 +2195,20 @@ public class Report extends Activity {
 									isValidReport = false;
 								}
 							}
+							
+							//Added check for required contact information
+							if (p.getIphone_contact_required().compareToIgnoreCase("1") == 0) {
+								
+								if (StringUtils.isBlank(reportInfo.getContactName())) {
+									isValidReport = false;
+									errorFields += "Contact Info\n";
+								} else if (StringUtils.isBlank(reportInfo.getContactEmail()) && StringUtils.isBlank(reportInfo.getContactPhone())) {
+									isValidReport = false;
+									errorFields += "Contact Info\n";
+								}
+							    
+							}
+							
 							break;
 						}
 					}
@@ -2429,8 +2462,10 @@ public class Report extends Activity {
 									new StringPart("device_model", Build.MODEL),
 									new StringPart("device_os_name", "Android"),
 									new StringPart("device_os_version", Build.VERSION.RELEASE + " Build " + Build.VERSION.INCREMENTAL + " Version " + Integer.toString(Build.VERSION.SDK_INT)),
+									new StringPart("device_contact_full_name", reportInfo.getContactName()),
+									new StringPart("device_contact_email_address", reportInfo.getContactEmail()),
+									new StringPart("device_contact_phone_number", reportInfo.getContactPhone()),
 									picture};
-							
 							
 							/*
 							Hashtable<String, String> postData = new Hashtable<String, String>();
