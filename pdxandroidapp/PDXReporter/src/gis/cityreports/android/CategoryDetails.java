@@ -1,12 +1,14 @@
 package gis.cityreports.android;
 
+import java.io.Serializable;
+
 /**
  * @author Roy Cham
  * 
  * Copyright 2010 City of Portland. All rights reserved.
  *
  */
-public class CategoryDetails implements Comparable {
+public class CategoryDetails implements Comparable, Serializable {
 	
     private String instance_id;
     private String category_id;
@@ -25,6 +27,8 @@ public class CategoryDetails implements Comparable {
     private String iphone_input_alias;    
 
     private String iphone_message;    
+    
+    private String iphone_contact_required;
 
     
 	/**
@@ -217,6 +221,22 @@ public class CategoryDetails implements Comparable {
 	public void setIphone_message(String iphoneMessage) {
 		iphone_message = iphoneMessage;
 	}
+	
+	
+	/**
+	 * @return the iphone_contact_required
+	 */
+	public String getIphone_contact_required() {
+		return iphone_contact_required;
+	}
+
+	/**
+	 * @param iphoneContactRequired the iphone_contact_required to set
+	 */
+	public void setIphone_contact_required(String iphoneContactRequired) {
+		iphone_contact_required = iphoneContactRequired;
+	}	
+	
 
 	@Override
 	public int compareTo(Object obj) {
