@@ -61,6 +61,8 @@ public class CategoryHandler extends DefaultHandler {
             
             post.setIphone_message(getAttributeValue("iphone_message", atts));
             
+            post.setIphone_contact_required(getAttributeValue("iphone_contact_required", atts));
+            
             /*
             post.setDesc(getAttributeValue("description", atts));
             post.setHref(getAttributeValue("href", atts));
