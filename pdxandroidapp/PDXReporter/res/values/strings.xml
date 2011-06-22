@@ -18,7 +18,8 @@
     <string name="menuClose">Close</string>
     <string name="menuSetting">Contact Info</string>
     <string name="menuHelp">Help</string>    
-    
+    <string name="filterHeader">Visibility</string>
+        
     <string name="defaultDisclaimerFrequency">1</string>
     <string name="defaultDisclaimerText">IMPORTANT:\n\nThis app should not be used to report emergencies of any kind. In the event of a life threatening emergency call 911.\n\nFor non-life threatening emergencies call 503-823-3333.\n\nFor any other issue that requires real-time feedback or attention please call 503-823-4000.\n\nThe City of Portland will not release any information provided by the user of this application to any outside company or organization, unless legally required to do so.</string>
     <string name="defaultGpsAccuracyThreshold">10</string>
@@ -51,7 +52,7 @@
     <string name="param6">EnterSomeValueHere</string>
     <string name="param7">EnterSomeValueHere</string>
     <string name="param8">EnterSomeValueHere</string>
-    
+    <string name="param9">EnterSomeValueHere</string>
     
     <string name="pval">EnterSomeValueHere</string>
     <string name="pval5">EnterSomeValueHere</string>
@@ -135,6 +136,14 @@
     
     <string name="postRequestContact_PROD">https://EnterYourUrlHere.code.google.com</string>
     <string name="postRequestContact_DEV">http://EnterYourUrlHere.code.google.com</string>
+    
+    <string name="scroll_view_2_text_1">Text View 1</string>
+    <string name="scroll_view_2_button_1">Button 1</string>
+    
+    <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
+    <string name="pull_to_refresh_release_label">Release to refresh...</string>
+    <string name="pull_to_refresh_refreshing_label">Loading...</string>
+    <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
     
     
 </resources>
