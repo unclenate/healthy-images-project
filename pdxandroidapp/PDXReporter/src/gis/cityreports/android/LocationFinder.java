@@ -32,7 +32,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 /**
@@ -167,9 +166,9 @@ public class LocationFinder extends MapActivity {
    
     if (width > height) {
     	setContentView(R.layout.location_landscape);
-    } else if (height > 800) {
-    	setContentView(R.layout.location);
-    } else if (height == 800) {
+    } else if (width >= 1024) {
+    	setContentView(R.layout.location_1024);
+    } else if (height >= 800) {
     	setContentView(R.layout.location);
     } else if (height == 480) {
     	setContentView(R.layout.location_480);
