@@ -40,6 +40,7 @@ public class ApplicationState extends Application {
 	//ToDo in future
 	//private static List<ReportInfo> failedReports;
 		
+	public static final String PREF_CATEGORIES				= "PREF_CATEGORIES";
 	public static final String PREF_CATEGORY_ID 			= "PREF_CATEGORY_ID";
 	public static final String PREF_ADDRESS_DESC 			= "PREF_ADDRESS_DESC";
 	public static final String PREF_DESCRIPTION 			= "PREF_DESCRIPTION";
@@ -52,6 +53,8 @@ public class ApplicationState extends Application {
 	public static final String PREF_IMAGE_WIDTH 			= "PREF_IMAGE_WIDTH";
 	public static final String PREF_IMAGE_HEIGHT			= "PREF_IMAGE_HEIGHT";
 	public static final String PREF_IMAGE_URI				= "PREF_IMAGE_URI";
+	public static final String PREF_INVISIBLE_CATEGORIES	= "PREF_INVISIBLE_CATEGORIES";
+	public static final String PREF_INVISIBLE_STATUS		= "PREF_INVISIBLE_STATUS";
 	public static final String PREF_INSTANCE_ID				= "PREF_INSTANCE_ID";
 	public static final String PREF_CONTACT_NAME			= "PREF_CONTACT_NAME";
 	public static final String PREF_CONTACT_EMAIL			= "PREF_CONTACT_EMAIL";
@@ -118,7 +121,14 @@ public class ApplicationState extends Application {
 		public static String getContactEmail() {
 			return mPrefs.getString(PREF_CONTACT_EMAIL, "");
 		}
-				
+		
+		public static String getInvisibleCategories() {
+			return mPrefs.getString(PREF_INVISIBLE_CATEGORIES, null);
+		}	
+		
+		public static String getInvisibleStatus() {
+			return mPrefs.getString(PREF_INVISIBLE_STATUS, null);
+		}
 		
 		public ReportInfo getReportInfoState(){
 		    return reportInfo;
@@ -279,12 +289,37 @@ public class ApplicationState extends Application {
 		    editor.commit();
 		}
 		
+		public static void saveCategories(String categories)
+		{
+			Editor editor = mPrefs.edit();
+			editor.putString(PREF_CATEGORIES, categories);
+			editor.commit();
+		}
+		
+		public static void saveInvisibleCategories(String categories) 
+		{
+			Editor editor = mPrefs.edit();
+			editor.putString(PREF_INVISIBLE_CATEGORIES, categories);
+			editor.commit();
+		}
+		
+		public static void saveInvisibleStatus(String status)
+		{
+			Editor editor = mPrefs.edit();
+			editor.putString(PREF_INVISIBLE_STATUS, status);
+			editor.commit();
+		}
+		
 		public static void SaveComments() 
 		{
 			Editor editor = mPrefs.edit();
 			editor.putString(PREF_DESCRIPTION, reportInfo.getDescription());
 			editor.commit();
 			
+		}
+		
+		public static String getCategories() {
+			return mPrefs.getString(PREF_CATEGORIES, null);
 		}
 		
 		public static long getContactAlertTimestamp() {
