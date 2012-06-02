@@ -3,7 +3,7 @@
     <string name="hello">\n\nTesting location coordinates...</string>
     <string name="crosshair">crosshair coordinates...</string>
     <string name="location">Waiting for location information...</string>
-    <string name="app_name">PDX Reporter</string>
+    <string name="app_name">Healthy Images Project</string>
     <string name="mapLocation">View My Location</string>
     <string name="mapHeader">Set Location</string>
     <string name="mapFooter">Center Crosshairs On Report Location</string>
