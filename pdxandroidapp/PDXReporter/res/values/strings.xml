@@ -125,7 +125,7 @@
 	
 	<string name="postRequestReportInfo_PROD">http://requestb.in/10luujj1</string>
 	<string name="postRequestReportInfo_DEV">http://EnterYourUrlHere.code.google.com</string>
-	<string name="postRequestReportInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReportInfoRegEx">http://requestb.in/10luujj1</string>
     <string name="postRequestMapInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
     
     <string name="postRequestSettings_PROD">http://requestb.in/10luujj1</string>
