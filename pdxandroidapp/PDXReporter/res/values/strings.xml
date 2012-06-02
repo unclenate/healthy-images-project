@@ -42,20 +42,20 @@
     <string name="unknownDevice">Unable to identify device.\nPlease try activating your Marketplace before returning.</string>
     <string name="android_emulator">ANDROID_EMULATOR</string>
     
-    <string name="param1">EnterSomeValueHere</string>
-    <string name="param2">EnterSomeValueHere</string>
+    <string name="param1">EnterSomeValueHere1</string>
+    <string name="param2">EnterSomeValueHere2</string>
     
-    <string name="param3">EnterSomeValueHere</string>
-    <string name="param4">EnterSomeValueHere</string>
-    <string name="param5">EnterSomeValueHere</string>
+    <string name="param3">EnterSomeValueHere3</string>
+    <string name="param4">EnterSomeValueHere4</string>
+    <string name="param5">EnterSomeValueHere5</string>
     
-    <string name="param6">EnterSomeValueHere</string>
-    <string name="param7">EnterSomeValueHere</string>
-    <string name="param8">EnterSomeValueHere</string>
-    <string name="param9">EnterSomeValueHere</string>
+    <string name="param6">EnterSomeValueHere6</string>
+    <string name="param7">EnterSomeValueHere7</string>
+    <string name="param8">EnterSomeValueHere8</string>
+    <string name="param9">EnterSomeValueHere9</string>
     
-    <string name="pval">EnterSomeValueHere</string>
-    <string name="pval5">EnterSomeValueHere</string>
+    <string name="pval">EnterSomeValueHere10</string>
+    <string name="pval5">EnterSomeValueHere11</string>
     
     
     <string name="gpsButtonDialog">Use GPS Location</string>
@@ -111,30 +111,30 @@
     <string name="submitReportMsg">Please wait, currently uploading\nyour report to the City of Portland.</string>
     <string name="workingText">working . . .</string>
     
-    <string name="postReportUrl_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postReportUrl_PROD">http://requestb.in/10luujj1</string>
     <string name="postReportUrl_DEV">http://EnterYourUrlHere.code.google.com</string>
     
-    <string name="postRequestInfo_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestInfo_PROD">https://s3-us-west-2.amazonaws.com/vibrantdata/catagories.xml</string>
 	<string name="postRequestInfo_DEV">http://EnterYourUrlHere.code.google.com</string>
 	
-	<string name="postRequestStatus_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestStatus_PROD">http://requestb.in/10luujj1</string>
 	<string name="postRequestStatus_DEV">http://EnterYourUrlHere.code.google.com</string>
 	
-	<string name="postRequestReports_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReports_PROD">http://requestb.in/10luujj1</string>
 	<string name="postRequestReports_DEV">http://EnterYourUrlHere.code.google.com</string>
 	
-	<string name="postRequestReportInfo_PROD">https://EnterYourUrlHere.code.google.com</string>
+	<string name="postRequestReportInfo_PROD">http://requestb.in/10luujj1</string>
 	<string name="postRequestReportInfo_DEV">http://EnterYourUrlHere.code.google.com</string>
 	<string name="postRequestReportInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
     <string name="postRequestMapInfoRegEx">http://EnterYourUrlHere.code.google.com</string>
     
-    <string name="postRequestSettings_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestSettings_PROD">http://requestb.in/10luujj1</string>
     <string name="postRequestSettings_DEV">http://EnterYourUrlHere.code.google.com</string>
     
-    <string name="postRequestBlackList_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestBlackList_PROD">http://requestb.in/10luujj1</string>
     <string name="postRequestBlackList_DEV">http://EnterYourUrlHere.code.google.com</string>
     
-    <string name="postRequestContact_PROD">https://EnterYourUrlHere.code.google.com</string>
+    <string name="postRequestContact_PROD">http://requestb.in/10luujj1</string>
     <string name="postRequestContact_DEV">http://EnterYourUrlHere.code.google.com</string>
     
     <string name="scroll_view_2_text_1">Text View 1</string>

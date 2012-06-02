@@ -360,7 +360,7 @@ public class Report extends Activity {
 
 					int categoryPosition = 0;
 
-					// Log.d("past category id", reportInfo.getCategoryId());
+					Log.d("past category id", reportInfo.getCategoryId());
 
 					if (posts != null) {
 						

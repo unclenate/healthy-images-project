@@ -4,6 +4,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +25,19 @@ public class CategoryHandler extends DefaultHandler {
     
     public CategoryHandler() {
         this.posts = new ArrayList<CategoryDetails>();
+
+        int i = 0;
+        String[] categories = {"Diseases & Conditions", "Emergency Preparedness & Response", "Environmental Health", "Healthy Living", "Injury, Violence & Safety", "Life Stages & Populations", "Workplace Safety & Health"};
+        for(String cat: categories){
+            CategoryDetails post = new CategoryDetails();
+            post.setCategory_id(String.valueOf(i));
+            post.setInstance_id(String.valueOf(i));
+            post.setIphone_input_alias(cat);
+            post.setIphone_contact_required("false");
+            post.setIphone_address_input_required("false");        	
+            this.posts.add(post);
+            i++;
+        }
     }
 
     @Override
@@ -40,7 +55,7 @@ public class CategoryHandler extends DefaultHandler {
     
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-        if (localName.equals(CategoryHandler.POST)) {
+    	if (localName.equals(CategoryHandler.POST)) {
         	CategoryDetails post = new CategoryDetails();
             
             post.setInstance_id(getAttributeValue("instance_id", atts));
