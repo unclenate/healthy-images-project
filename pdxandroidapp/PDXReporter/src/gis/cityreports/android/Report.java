@@ -626,19 +626,25 @@ public class Report extends Activity {
 	
 	private SensorEventListener listener = new SensorEventListener() {
 		public volatile float direction = (float) 0;
-		
+
+		/*
 		@Override
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
 			// TODO Auto-generated method stub
 			
 		}
+		*/
 
-		@Override
 		public void onSensorChanged(SensorEvent event) {
 			// TODO Auto-generated method stub
 			float vals[] = event.values;   
 		    direction = vals[0];
 		    Log.d("DIRECTION", "sensorChanged (" + Float.toString(direction) + ")");
+		}
+
+		public void onAccuracyChanged(Sensor arg0, int arg1) {
+			// TODO Auto-generated method stub
+			
 		}
 	};
 	
@@ -762,7 +768,6 @@ public class Report extends Activity {
 		mEditText.setText(reportInfo.getDescription());
 
 		mEditText.setOnTouchListener(new OnTouchListener() {
-			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				
 				if (event.getAction() == KeyEvent.ACTION_DOWN) {
@@ -908,7 +913,6 @@ public class Report extends Activity {
 			Button btnTakePhoto = (Button) d.findViewById(R.id.btnTakePhoto);
 
 			btnTakePhoto.setOnClickListener(new OnClickListener() {
-				@Override
 				public void onClick(View v) {
 					getThumbailPicture();
 					d.dismiss();
@@ -919,7 +923,6 @@ public class Report extends Activity {
 					.findViewById(R.id.btnChooseFromLib);
 
 			btnChooseFromLib.setOnClickListener(new OnClickListener() {
-				@Override
 				public void onClick(View v) {
 					selectExternalStorageImage();
 					d.dismiss();
@@ -928,7 +931,6 @@ public class Report extends Activity {
 
 			Button btnNoPhoto = (Button) d.findViewById(R.id.btnNoPhoto);
 			btnNoPhoto.setOnClickListener(new OnClickListener() {
-				@Override
 				public void onClick(View v) {
 					imgPreviewTv.setVisibility(android.view.View.VISIBLE);
 					ImageView mTakePhoto = (ImageView) findViewById(R.id.imgPreview);
@@ -940,7 +942,6 @@ public class Report extends Activity {
 
 			Button btnPhotoCancel = (Button) d.findViewById(R.id.btnPhotoCancel);
 			btnPhotoCancel.setOnClickListener(new OnClickListener() {
-				@Override
 				public void onClick(View v) {
 					d.dismiss();
 				}

@@ -45,8 +45,7 @@ public class Comments extends Activity  {
         
         Button btnSaveComments = (Button) findViewById(R.id.btnFinishComments);
         btnSaveComments.setOnClickListener(new OnClickListener() {
-        	@Override
-            public void onClick(View v) {
+        	public void onClick(View v) {
         		InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         		mgr.hideSoftInputFromWindow(mComments.getWindowToken(), 0);
         		setEditTextField();

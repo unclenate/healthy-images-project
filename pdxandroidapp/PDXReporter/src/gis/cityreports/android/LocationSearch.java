@@ -242,7 +242,6 @@ public class LocationSearch extends Activity implements LocationListener{
 	/**************************************************************************
 	 * LocationListener overrides below 
 	 **************************************************************************/
-	@Override
 	public void onLocationChanged(Location location) {
 
 		
@@ -271,12 +270,9 @@ public class LocationSearch extends Activity implements LocationListener{
 
 	}
 
-	@Override
 	public void onProviderDisabled(String provider) {}
 
-	@Override
 	public void onProviderEnabled(String provider) {}
 
-	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {}
 }

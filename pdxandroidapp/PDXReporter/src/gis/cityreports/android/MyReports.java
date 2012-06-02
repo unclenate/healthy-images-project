@@ -174,7 +174,6 @@ public class MyReports extends ListActivity
 	    
 	    Button buttonFilter = (Button)findViewById(R.id.btnFilter);
         buttonFilter.setOnClickListener(new OnClickListener() {
-        	@Override
             public void onClick(View v) {
         		Intent i = new Intent(MyReports.this, FilterActivity.class);
         		
@@ -184,7 +183,6 @@ public class MyReports extends ListActivity
         });
         
        ((PullToRefreshListView) getListView()).setOnRefreshListener(new OnRefreshListener() {
-            @Override
             public void onRefresh() {
                 new GetDataTask().execute();
             }
@@ -653,7 +651,6 @@ public class MyReports extends ListActivity
             		
             		tv.setOnClickListener(new OnClickListener() {
 
-        				@Override
         				public void onClick(View v) {
         					
         					if (itemValue != "" ) {

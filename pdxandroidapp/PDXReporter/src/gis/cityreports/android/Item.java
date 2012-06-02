@@ -77,8 +77,7 @@ public class Item implements Comparable<Item>, Iterable<Object> {
 	public void setItemID(int itemID) {
 		this.itemID = itemID;
 	}
-	
-	@Override
+
 	public int compareTo(Item another) {
 		// TODO Auto-generated method stub
 		
@@ -108,7 +107,6 @@ public class Item implements Comparable<Item>, Iterable<Object> {
 		setAttributes(attributes);
 	}
 
-	@Override
 	public Iterator iterator() {
 		// TODO Auto-generated method stub
 		return null;

@@ -236,9 +236,7 @@ public class CategoryDetails implements Comparable, Serializable {
 	public void setIphone_contact_required(String iphoneContactRequired) {
 		iphone_contact_required = iphoneContactRequired;
 	}	
-	
 
-	@Override
 	public int compareTo(Object obj) {
 		// TODO Auto-generated method stub
 		
