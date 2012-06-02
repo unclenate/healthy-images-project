@@ -34,7 +34,9 @@ public class CategoryHandler extends DefaultHandler {
             post.setInstance_id(String.valueOf(i));
             post.setIphone_input_alias(cat);
             post.setIphone_contact_required("false");
-            post.setIphone_address_input_required("false");        	
+            post.setIphone_address_input_required("false");  
+            post.setIphone_binary_input_required("false");
+            post.setIphone_text_input_required("false");
             this.posts.add(post);
             i++;
         }
