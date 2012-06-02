@@ -21,7 +21,7 @@
     <string name="filterHeader">Visibility</string>
         
     <string name="defaultDisclaimerFrequency">1</string>
-    <string name="defaultDisclaimerText">IMPORTANT:\n\nThis app should not be used to report emergencies of any kind. In the event of a life threatening emergency call 911.\n\nFor non-life threatening emergencies call 503-823-3333.\n\nFor any other issue that requires real-time feedback or attention please call 503-823-4000.\n\nThe City of Portland will not release any information provided by the user of this application to any outside company or organization, unless legally required to do so.</string>
+    <string name="defaultDisclaimerText">IMPORTANT:\n\nThis app should not be used to report imminent emergencies of any kind. In the event of a life threatening emergency call 911.\n\nFor non-life threatening emergencies call the local authorities.\n\n The Healthy Images project will not release any information provided by the user of this application to any outside company or organization, unless the user agrees or we are legally required to do so.</string>
     <string name="defaultGpsAccuracyThreshold">10</string>
     <string name="defaultGpsSampleCount">4</string>
     <string name="defaultGpsSampleInterval">3</string>
