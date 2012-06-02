@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/layout_root"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/black"
+              android:padding="10dp">
+              
+    <TextView android:id="@+id/customDialogText"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:textColor="@color/white"
+              android:gravity="center_vertical|center_horizontal"
+              android:textColorLink="#FF99CC33"
+              android:background="@color/black"
+              android:linksClickable="true" />
+</LinearLayout>

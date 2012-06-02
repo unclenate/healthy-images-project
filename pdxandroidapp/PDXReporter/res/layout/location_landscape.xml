@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+			android:id="@+id/home_container"  
+			android:layout_width="fill_parent" 
+			android:layout_height="fill_parent">
+			
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id="@+id/mapLayout"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent">
+					
+		<gis.cityreports.android.CustomMapView
+		    android:id="@+id/myMapView"
+		    android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+		    android:enabled="true"
+		    android:clickable="true"
+		    android:focusableInTouchMode="true"
+		    android:apiKey="0Rww9cCijQ3LT7XD4Ir7G1SRaT_v3Cd8Ohe4t4g"
+		    android:layout_below="@+id/topNav"
+		    android:layout_weight="1"
+		  />
+ 		               
+		<ImageView android:id="@+id/crosshairblack" 
+			  android:src="@drawable/crosshairsblack"
+			  android:layout_width="wrap_content" 
+			  android:layout_height="wrap_content" 
+			  android:layout_alignParentLeft="false" 
+			  android:layout_centerInParent="true"
+			  android:layout_centerVertical="true"
+			  android:clickable="false"
+			  android:focusableInTouchMode="false"
+			  android:focusable="false" />
+			  
+		<ImageView android:id="@+id/crosshairyellow" 
+			  android:src="@drawable/crosshairsyellow"
+			  android:layout_width="wrap_content" 
+			  android:layout_height="wrap_content" 
+			  android:layout_alignParentLeft="false" 
+			  android:layout_centerInParent="true"
+			  android:layout_centerVertical="true"
+			  android:clickable="false"
+			  android:focusableInTouchMode="false"
+			  android:focusable="false"
+			  android:visibility="invisible" />
+
+	</RelativeLayout>
+
+	<gis.cityreports.android.TransparentPanel
+    	android:id="@+id/topNav"
+		android:layout_width="wrap_content" 
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:layout_alignParentLeft="true"
+		android:gravity="center_vertical|center_horizontal"
+		android:paddingLeft="5px"
+		android:paddingTop="5px"
+		android:paddingRight="5px"
+		android:paddingBottom="5px"
+		>
+		
+
+			
+		   <Button android:id="@+id/btnMapViewCancel"
+		    android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dip"
+            android:layout_width="55dip"
+            android:layout_height="55dip"
+            android:maxHeight="55dip" 
+            android:textSize="10dip"
+            android:text="Cancel"
+            android:layout_below="@+id/TextView" 
+            />
+            
+            <Button android:id="@+id/btnSave"
+            android:layout_marginTop="10dip"
+            android:layout_alignParentLeft="true"
+            android:text="Save" 
+            android:textSize="10dip"
+            android:layout_width="55dip"
+            android:layout_height="55dip"
+            android:maxHeight="55dip" 
+            android:layout_below="@+id/btnMapViewCancel" 
+            />
+            
+            <ImageButton android:id="@+id/btnGPSstart"
+            		android:layout_alignParentLeft="true"
+            		android:layout_marginTop="10dip"
+		            android:src="@drawable/mylocation"
+		            android:layout_width="55dip"
+		            android:layout_height="55dip"
+		            android:maxHeight="55dip"
+		            android:layout_below="@+id/btnSave" 
+	    		/>    
+	    		
+				<Button android:id="@+id/btnLayerToggle"
+					android:layout_alignParentLeft="true"
+					android:layout_marginTop="10dip"
+		            android:layout_width="55dip"
+		            android:layout_height="55dip"
+		            android:maxHeight="55dip"
+		            android:layout_below="@+id/btnGPSstart" 
+		            android:text="Map" 
+            		android:textSize="10dip"
+		            android:layout_marginBottom="10dip"
+	    		/> 
+
+	</gis.cityreports.android.TransparentPanel>      
+
+		  
+         
+    
+
+
+ 	
+</FrameLayout>

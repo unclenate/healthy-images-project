@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<group android:id="@+id/group1">
+    	<item android:id="@+id/NewReport" android:title="@string/menuReport" android:icon="@drawable/ic_menu"/>
+    	<item android:id="@+id/MyReport" android:title="@string/menuMyReport" android:icon="@drawable/ic_new_menu"/>
+	</group>
+	<group android:id="@+id/group2">
+    	<item android:id="@+id/Close" android:title="@string/menuClose" android:icon="@drawable/ic_menu_close_clear_cancel"/>
+    	<item android:id="@+id/Setting" android:title="@string/menuSetting" android:icon="@drawable/ic_menu_preferences"/>
+    	<item android:id="@+id/Help" android:title="@string/menuHelp" android:icon="@drawable/ic_menu_help"/>
+	</group>
+	
+</menu>

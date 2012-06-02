@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/scrollCommentsMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#CCCCCC"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:background="#CCCCCC"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="15px"
+	>
+		<EditText
+			android:layout_marginTop="10dip"
+	        android:id="@+id/editComments"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:isScrollContainer="true"
+	        android:gravity="top"
+	        android:scrollbars="vertical"
+	        android:singleLine="false"
+	        android:lines="10"
+	        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+	        android:maxLines="10"
+	        android:maxLength="1000"
+	        android:textColor="#FF474747"
+	        android:textSize="12dip"
+	        android:hint="@string/default_text"
+	         />
+			
+	<Button android:id="@+id/btnFinishComments"
+		android:layout_marginTop="8dip"
+		android:layout_marginBottom="9dip"
+		android:layout_below="@+id/editComments"
+        android:layout_width="250dip"
+        android:layout_gravity="center|center_vertical|center_horizontal"
+        android:layout_height="wrap_content"
+        android:text="@string/btnCommentText"
+        android:textColor="#FFFFFFFF"
+        android:textSize="16dip"
+        android:background="@drawable/highlight_button" />  
+
+
+</LinearLayout>
+    
+</ScrollView>
+
+
+
