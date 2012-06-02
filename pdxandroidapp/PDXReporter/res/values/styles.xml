@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CodeFont"> 
+	       <item name="android:textStyle">normal</item> 
+	       <item name="android:panelFullBackground">@color/white</item>
+	       <item name="android:windowBackground">@color/white</item>
+    		<item name="android:colorBackground">@color/white</item>
+	</style>  
+</resources>

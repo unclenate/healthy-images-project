@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/scrollReportMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#CCCCCC"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:background="#CCCCCC"
+    android:paddingLeft="35dip"
+    android:paddingRight="35dip"
+    android:paddingTop="15dip"
+    android:stretchColumns="1"
+    android:layout_weight="1"
+    >
+
+    <TableRow>
+    	<TextView
+	    	android:id="@+id/contactName"
+	    	android:text="Name"
+	    	android:textColor="#FF000000"
+	    	android:layout_width="fill_parent"
+	    	android:editable="false"
+	    	android:paddingRight="10px"
+	    	android:layout_height="wrap_content" />
+	    	
+	    <EditText
+	    	android:id="@+id/editContactName"
+	    	android:layout_width="200dip"
+	    	android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+	    	android:singleLine="true"
+	    	android:maxLength="100"
+			android:layout_height="wrap_content" />	
+    </TableRow>
+    
+    <TableRow>
+		<TextView
+	    	android:id="@+id/contactPhone"
+	    	android:textColor="#FF000000"
+	    	android:text="Telephone"
+	    	android:editable="false"
+	    	android:paddingRight="10px"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content" />
+	    
+	    <EditText
+	    	android:id="@+id/editContactPhone"
+	    	android:layout_width="200dip"
+	    	android:singleLine="true"
+	    	android:maxLength="30"
+			android:layout_height="wrap_content" />	    	
+	    	
+    </TableRow>
+
+
+    <TableRow>
+	    <TextView
+	    	android:id="@+id/contactEmail"
+	    	android:textColor="#FF000000"
+	    	android:text="Email"
+	    	android:editable="false"
+	    	android:paddingRight="10px"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content" />
+
+	    <EditText
+	    	android:id="@+id/editContactEmail"
+	    	android:layout_width="200dip"
+	    	android:singleLine="true"
+	    	android:maxLength="100"
+	    	android:layout_height="wrap_content"
+	    	android:imeOptions="actionDone" />	    	    
+    	
+    
+    </TableRow>
+    
+    <TableRow>
+    	<TextView 
+    		android:layout_marginTop="10dip"
+    		android:layout_span="2"
+    		android:id="@+id/contactEmail"
+	    	android:textColor="#FF666666"
+	    	android:text="@string/contactInfoFooter"
+	    	android:editable="false"
+	    	android:textSize="12sp"
+	    	android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="fill_parent"
+	    	android:layout_marginBottom="43dip" />
+    </TableRow>
+    
+	</TableLayout>
+	
+</ScrollView>
+
+
+

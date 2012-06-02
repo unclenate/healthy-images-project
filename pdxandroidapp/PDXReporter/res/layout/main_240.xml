@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/scrollReportMain"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:background="#CCCCCC"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="15px"
+	>
+
+
+	<RelativeLayout
+    	android:id="@+id/parentPhotoArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:background="#CCCCCC"
+		>	
+
+		<RelativeLayout
+	    	android:id="@+id/mapLayout"
+			android:layout_width="152dip" 
+			android:layout_height="102dip"
+			android:paddingLeft="2px"
+			android:paddingTop="2px"
+			android:paddingRight="2px"
+			android:paddingBottom="2px"
+			android:background="#999999">
+			
+			<ImageView 
+		        android:id="@+id/imgPreview" 
+		        android:scaleType="centerCrop"
+		        android:gravity="center_vertical|center_horizontal"
+		        android:layout_width="150dip" 
+		        android:layout_height="100dip"
+		        android:background="@drawable/highlight_photo"
+		        />  
+		            
+		    <TextView
+		    	android:id="@+id/imgPreviewTextView" 
+		        android:layout_width="75dip"
+			    android:layout_height="50dip"
+			    android:focusableInTouchMode="false"
+		        android:gravity="center_vertical|center_horizontal"
+		        android:layout_centerInParent="true"
+		        android:visibility="visible"
+		        android:textSize="14sp"
+		        android:textColor="#ff979797"
+		        android:text="@string/imgPreviewText" />
+		        
+		</RelativeLayout>
+
+		<Button android:id="@+id/btnSelectInternalImage"
+				android:layout_toRightOf="@+id/mapLayout"
+				android:layout_marginLeft="10px"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_centerVertical="true"
+	            android:gravity="center_vertical|center_horizontal"
+	            android:layout_alignParentRight="true"
+	            android:layout_alignParentBottom="true"
+	            android:text="@string/btnSelectPhoto" 
+	            android:textColor="#FFFFFFFF"
+	            android:textSize="16dip"
+	            android:background="@drawable/highlight_button" /> 
+
+	</RelativeLayout>    
+
+	<Spinner android:id="@+id/spinner"  
+		android:layout_marginTop="15dip"
+		android:layout_below="@+id/parentPhotoArea"      
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:drawSelectorOnTop="true"
+		android:color="@color/white"
+		android:textColor="@color/white"
+   		android:gravity="center"
+        android:textSize="16dip"
+        android:background="@drawable/highlight_button"  />
+        
+	<Button android:id="@+id/btnLocationChoices"
+		android:layout_marginTop="10dip"
+		android:layout_below="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnReportLocation"
+        android:textColor="#FFFFFFFF"
+        android:textSize="16dip"
+        android:background="@drawable/highlight_button" />   
+
+
+		<EditText
+			android:layout_marginTop="10dip"
+	        android:id="@+id/editTxtComments"
+	        android:layout_below="@+id/btnLocationChoices"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        
+	        android:isScrollContainer="true"
+	        android:gravity="top"
+	        android:scrollbars="vertical"
+	        android:singleLine="false"
+	        android:lines="8"
+	        android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+	        android:maxLines="4"
+	        android:maxLength="1000"
+	        android:textColor="#FF474747"
+	        android:textSize="12dip"
+	        android:hint="@string/default_text"
+	         />
+
+	
+	<RelativeLayout
+	    	android:id="@+id/mapLayout"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dip"
+			android:gravity="center_horizontal"
+			>
+			
+		<Button android:id="@+id/btnCancelMain"
+			android:layout_width="100dip"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btnCancel"
+	        android:textColor="#FFFFFFFF"
+	        android:textSize="16dip"
+	        android:background="@drawable/cancel_main_button" />  
+	         
+		<Button android:id="@+id/btnSubmitMain"
+			android:layout_marginLeft="15dip"
+			android:layout_toRightOf="@+id/btnCancelMain"
+			android:layout_width="100dip"
+	        android:layout_height="wrap_content"
+	        android:text="@string/btnSubmit"
+	        android:textColor="#FFFFFFFF"
+	        android:textSize="16dip"
+	        android:background="@drawable/submit_main_button" />   
+	
+	</RelativeLayout>	                    
+ 
+</LinearLayout>
+
+</ScrollView>
+
+
+
