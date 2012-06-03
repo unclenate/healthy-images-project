@@ -715,20 +715,20 @@ public class Report extends Activity {
 			validDevice = false;
 		}
 
-		if (StringUtils.isBlank(android_id)) {
-
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage(getString(R.string.unknownDevice))
-					.setCancelable(false).setPositiveButton("Close",
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,	int id) {
-									Report.this.finish();
-								}
-							});
-
-			AlertDialog alert = builder.create();
-			alert.show();
-		}
+//		if (StringUtils.isBlank(android_id)) {
+//
+//			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//			builder.setMessage(getString(R.string.unknownDevice))
+//					.setCancelable(false).setPositiveButton("Close",
+//							new DialogInterface.OnClickListener() {
+//								public void onClick(DialogInterface dialog,	int id) {
+//									Report.this.finish();
+//								}
+//							});
+//
+//			AlertDialog alert = builder.create();
+//			alert.show();
+//		}
 
 		parserSettingHandler = new SettingHandler(configSetting);
 
@@ -988,7 +988,7 @@ public class Report extends Activity {
 
 				if (isValidGPS) {
 
-					boolean result = utils.locationIsInside(gpsLatitude, gpsLongitude);
+					boolean result = true; //utils.locationIsInside(gpsLatitude, gpsLongitude);
 					if (!result) {
 						reportInfo.setValidGPSLocation(false);
 						reportInfo.setLatitude(0);

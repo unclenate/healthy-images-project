@@ -287,7 +287,7 @@ public class LocationFinder extends MapActivity {
         	double crossHairLatitude = ((int)mapCenter.getLatitudeE6())/1.0E6;
         	double crossHairLongitude = ((int)mapCenter.getLongitudeE6()/ 1.0E6);
         	        	
-        	boolean result = utils.locationIsInside(crossHairLatitude, crossHairLongitude);
+        	boolean result = true; //utils.locationIsInside(crossHairLatitude, crossHairLongitude);
         	if(!result) {
         		disclaimerPopup(getString(R.string.invalidLocation));
         		return;
