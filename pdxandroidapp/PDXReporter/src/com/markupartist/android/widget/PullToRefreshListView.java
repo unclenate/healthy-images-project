@@ -22,7 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.AbsListView.OnScrollListener;
 
-import gis.cityreports.android.R;
+import org.codeforhealth.hip.android.R;
 
 /**
  * 

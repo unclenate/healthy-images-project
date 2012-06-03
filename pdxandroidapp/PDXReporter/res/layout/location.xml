@@ -61,7 +61,7 @@
 		android:layout_weight="1"
 		android:layout_below="@+id/topNav">
 	
-		  <gis.cityreports.android.CustomMapView
+		  <org.codeforhealth.hip.android.CustomMapView
 		    android:id="@+id/myMapView"
 		    android:layout_width="fill_parent"
             android:layout_height="fill_parent"

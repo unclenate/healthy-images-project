@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="gis.cityreports.android"
+      package="org.codeforhealth.hip.android"
       android:versionCode="6"
       android:versionName="1.5">
 
@@ -23,7 +23,7 @@
                   android:anyDensity="true" />
       
     <application android:icon="@drawable/icon" 
-    	android:name="ApplicationState" 
+    	android:name="org.codeforhealth.hip.android.ApplicationState" 
     	android:label="@string/app_name"
     	android:debuggable="true">
     	
@@ -62,7 +62,7 @@
  		<activity android:name=".ContactInfo" />
 		<activity android:name=".FilterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" />
  		<activity android:name=".MyReports" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" />
- 		<activity android:name=".ReportDetails" android:screenOrientation="portrait" android:label="@string/app_name" />
+ 		<activity android:name="org.codeforhealth.hip.android.ReportDetails" android:screenOrientation="portrait" android:label="@string/app_name" />
 		     	
      	<uses-library android:name="com.google.android.maps"/>
      			  
